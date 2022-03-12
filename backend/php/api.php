@@ -1,7 +1,23 @@
 <?php
+    header('Access-Control-Allow-Origin: *');
     header("Content-Type: application/json");
-    define('host', (string) 'backend/');
-    define('carpeta', (string) 'json/');
-    $peticion = file_get_contents($_SERVER["HTTP_REFERER"].host.carpeta."menu.json");
-    echo $peticion;
+    require 'config.php';
+    $json = (object) [];
+
+    $json->menu = (object) $abrir(
+        archivo: "menu.json"
+    );
+    $json->inicio = (object) $abrir(
+        archivo: "inicio.json"
+    );
+    $json->ourMenu = (object) $abrir(
+        archivo: "ourMenu.json"
+    );
+    $json->ourKitchenExpert = (object) $abrir(
+        archivo: "ourKitchenExpert.json"
+    );
+    $json->theySaidAboutUs = (object) $abrir(
+        archivo: "theySaidAboutUs.json"
+    );
+    echo json_encode($json, JSON_UNESCAPED_UNICODE | JSON_PRETTY_PRINT);
 ?>
