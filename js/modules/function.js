@@ -5,7 +5,18 @@ const descriptcion = (obj)=>{
     });
     return data;
 }
-
+const lista = (obj,atrr,val)=>{
+    let data = [];
+    Object.values(obj.enlace).forEach(element => {
+        let obj = [];
+        let value = Object.values(element);
+        obj[`${val}`] = value[0];
+        obj[`${atrr}`] = value[1];
+        data.push({...obj});
+    });
+    return data;
+}
 export const fn = {
-    descriptcion
+    descriptcion,
+    lista
 };
