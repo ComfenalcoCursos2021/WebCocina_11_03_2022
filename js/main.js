@@ -1,7 +1,8 @@
 import {fn} from './modules/function.js';
+// backend/php/api.php
 addEventListener("DOMContentLoaded", async()=>{
     //Peticion al archivo PHP
-    let peticion = await fetch("backend/php/api.php");
+    let peticion = await fetch("https://comfenalcocursos2022.000webhostapp.com/WebCocina_11_03_2022/backend/php/api.php");
     let obj = await peticion.json();
     let caja = (lista, container="LI", hijo="A")=>{
         let frag = new DocumentFragment();
